@@ -13,6 +13,7 @@ namespace Notepad
 {
     public partial class Form1 : Form
     {
+        string str;
         public Form1()
         {
             InitializeComponent();
@@ -66,6 +67,19 @@ namespace Notepad
             {
                 File.WriteAllText(sfd.FileName, textBox1.Text);
             }
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            str = textBox1.SelectedText.ToString();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string s;
+            s = str.ToString();
+            textBox1.Paste(s.ToString());
         }
     }
 }
