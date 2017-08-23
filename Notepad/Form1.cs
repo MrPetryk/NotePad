@@ -67,5 +67,11 @@ namespace Notepad
                 File.WriteAllText(sfd.FileName, textBox1.Text);
             }
         }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            char[] str = new char[5000];
+            textBox1.SelectedText.CopyTo(0, str, textBox1.TextLength, 0);
+        }
     }
 }
