@@ -40,10 +40,8 @@ namespace Notepad
                     {                 
                         File.WriteAllText(sfd.FileName, textBox1.Text);
                     }
-                }
-                
-                    textBox1.Clear();
-                
+                }               
+                    textBox1.Clear();               
             }
         }
 
@@ -55,6 +53,19 @@ namespace Notepad
                textBox1.Text=File.ReadAllText(ofd.FileName);
             }
             
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = "NoName";
+            sfd.Filter = "Text Files | *.txt";
+            sfd.DefaultExt = "txt";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(sfd.FileName, textBox1.Text);
+            }
         }
     }
 }
