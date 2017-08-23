@@ -13,6 +13,7 @@ namespace Notepad
 {
     public partial class Form1 : Form
     {
+        string str;
         public Form1()
         {
             InitializeComponent();
@@ -70,8 +71,15 @@ namespace Notepad
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            char[] str = new char[5000];
-            textBox1.SelectedText.CopyTo(0, str, textBox1.TextLength, 0);
+
+            str = textBox1.SelectedText.ToString();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string s;
+            s = str.ToString();
+            textBox1.Paste(s.ToString());
         }
     }
 }
