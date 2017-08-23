@@ -16,6 +16,7 @@ namespace Notepad
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,6 +45,16 @@ namespace Notepad
                     textBox1.Clear();
                 
             }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+               textBox1.Text=File.ReadAllText(ofd.FileName);
+            }
+            
         }
     }
 }
