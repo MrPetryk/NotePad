@@ -122,5 +122,30 @@ namespace Notepad
             textBox1.Font = new Font(textBox1.Font.Name, currentSize,
                 textBox1.Font.Style);
         }
+
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Red;
+        }
+
+        private void greenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Green;
+        }
+
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Blue;
+        }
+
+        private void blackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Black;
+        }
+
+        private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.White;
+        }
     }
 }
