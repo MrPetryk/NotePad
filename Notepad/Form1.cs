@@ -13,12 +13,16 @@ namespace Notepad
 {
     public partial class Form1 : Form
     {
-        string str;
+      
+
         public Form1()
         {
             InitializeComponent();
-            
+          //  tsize = (int)textBox1.Font.Size;
         }
+
+        string str;
+       
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -71,14 +75,11 @@ namespace Notepad
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             str = textBox1.SelectedText.ToString();
         }
         
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-
             string s;
             s = str.ToString();
             textBox1.Paste(s.ToString());
@@ -92,8 +93,7 @@ namespace Notepad
             }
             else { pasteToolStripMenuItem.Enabled = false; }
 
-            if (textBox1.CanUndo == false)
-            {
+            if (textBox1.CanUndo == false){
                 undoToolStripMenuItem.Enabled = false;
             }else { undoToolStripMenuItem.Enabled = true; }
 
@@ -105,6 +105,22 @@ namespace Notepad
             textBox1.Undo();
         }
 
+        float currentSize;
 
+        private void textSizeUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentSize = textBox1.Font.Size;
+            currentSize += 2.0F;
+            textBox1.Font = new Font(textBox1.Font.Name, currentSize,
+                textBox1.Font.Style, textBox1.Font.Unit);
+        }
+
+        private void textSizeDownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentSize = textBox1.Font.SizeInPoints;
+            currentSize -= 1;
+            textBox1.Font = new Font(textBox1.Font.Name, currentSize,
+                textBox1.Font.Style);
+        }
     }
 }
