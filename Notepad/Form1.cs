@@ -74,12 +74,23 @@ namespace Notepad
 
             str = textBox1.SelectedText.ToString();
         }
-
+        
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+
             string s;
             s = str.ToString();
             textBox1.Paste(s.ToString());
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (str != null)
+            {
+                pasteToolStripMenuItem.Enabled= true;
+            }
+            else { pasteToolStripMenuItem.Enabled = false; }
         }
     }
 }
