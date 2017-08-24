@@ -91,6 +91,20 @@ namespace Notepad
                 pasteToolStripMenuItem.Enabled= true;
             }
             else { pasteToolStripMenuItem.Enabled = false; }
+
+            if (textBox1.CanUndo == false)
+            {
+                undoToolStripMenuItem.Enabled = false;
+            }else { undoToolStripMenuItem.Enabled = true; }
+
+        
         }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {         
+            textBox1.Undo();
+        }
+
+
     }
 }
